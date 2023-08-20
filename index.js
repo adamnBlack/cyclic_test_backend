@@ -19,14 +19,29 @@ app.use("/cart", cartRouter);
 app.use(Validator);
 app.use("/users", userRouter);
 
-app.listen(8000, async () => {
+const connectDB = async () => {
     try {
-        await connection;
-        console.log("Connected to the Database of Wondermart");
+      const conn = await connection();
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
     }
-    catch (err) {
-        console.log(err);
-        console.log("Connection Failed!");
-    }
-    console.log(`Server is running...`);
-});
+  }
+
+connectDB().then(
+    app.listen(8000, () => {
+        console.log(`Server is running on port ${PORT}`);
+      })
+);
+// app.listen(8000, async () => {
+//     try {
+//         await connection;
+//         console.log("Connected to the Database of Wondermart");
+//     }
+//     catch (err) {
+//         console.log(err);
+//         console.log("Connection Failed!");
+//     }
+//     console.log(`Server is running...`);
+// });
