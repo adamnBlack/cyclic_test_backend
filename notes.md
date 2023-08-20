@@ -1,0 +1,2 @@
+- Installation needs to be done
+- `npm i express nodemon mongoose bcrypt cors dotenv jsonwebtoken`
