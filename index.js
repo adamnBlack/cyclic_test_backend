@@ -21,7 +21,7 @@ app.use("/users", userRouter);
 
 const connectDB = async () => {
     try {
-      const conn = await connection();
+      const conn = await connection;
       console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
       console.log(error);
@@ -31,7 +31,7 @@ const connectDB = async () => {
 
 connectDB().then(
     app.listen(8000, () => {
-        console.log(`Server is running on port ${PORT}`);
+        console.log(`Server is running on port`);
       })
 );
 // app.listen(8000, async () => {
