@@ -6,6 +6,7 @@ const productRouter = express.Router();
 
 
 productRouter.get("/", async (req, res) => {
+    //res.send({"message": "hello"})
     let query = req.query;
     console.log(query)
     const price_low = req.query.price_low;
